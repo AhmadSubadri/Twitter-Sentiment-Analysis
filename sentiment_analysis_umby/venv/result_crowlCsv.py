@@ -10,7 +10,7 @@ positive_counts = []
 negative_counts = []
 netral_counts = []
 clean_tweets = []
-header = [("Tweets", "Positive", "Negative", "Positive %", "Negative %", "Netral %")]
+header = [("Tweets", "Positive", "Negative", "Netral", "Positive %", "Negative %", "Netral %")]
 
 tweets = open("mercubuana.csv").read()
 tweets_list = tweets.split('\n')
@@ -56,7 +56,7 @@ for tweet in tweets_list:
     negative_word.append(text_negative)
     netral_word.append(text_netral)
 
-output = zip(clean_tweets, positive_word, negative_word, positive_counts, negative_counts, netral_counts)
+output = zip(clean_tweets, positive_word, negative_word, netral_word, positive_counts, negative_counts, netral_counts)
 title = header
 writer = csv.writer(open('source/result_sentiment.csv', 'w'))
 writer.writerows(title)
